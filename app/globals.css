@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 100, 10, 10; /* Black text */
+  --background-start-rgb: 14, 19, 20; /* Light gray */
+  --background-end-rgb: 40, 40, 40; /* Light gray */
+  --header-height: 80px; /* Adjust based on your Header height */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255; /* White text */
+    --background-start-rgb: 30, 30, 30; /* Dark gray */
+    --background-end-rgb: 0, 0, 0; /* Black */
+  }
+}
+
+@layer base {
+  :root {
+    --background: rgb(red); /* Light gray */
+    --foreground: rgb(red); /* Black text */
+    --card: rgb(255, 255, 255); /* White card background */
+    --card-foreground: rgb(0, 0, 0); /* Black text */
+    --popover: rgb(255, 255, 255); /* White popover background */
+    --popover-foreground: rgb(0, 0, 0); /* Black text */
+    --primary: rgb(0, 0, 0); /* Black primary color */
+    --primary-foreground: rgb(240, 17, 17); /* White text */
+    --secondary: rgb(245, 245, 245); /* Light gray secondary background */
+    --secondary-foreground: rgb(0, 0, 0); /* Black text */
+    --muted: rgb(245, 245, 245); /* Light gray muted background */
+    --muted-foreground: rgb(115, 115, 115); /* Gray text */
+    --accent: rgb(245, 245, 245); /* Light gray accent background */
+    --accent-foreground: rgb(0, 0, 0); /* Black text */
+    --destructive: rgb(220, 38, 38); /* Red destructive color */
+    --destructive-foreground: rgb(255, 255, 255); /* White text */
+    --border: rgb(229, 229, 229); /* Light gray border */
+    --input: rgb(229, 229, 229); /* Light gray input background */
+    --ring: rgb(0, 0, 0); /* Black ring color */
+    --chart-1: rgb(239, 68, 68); /* Red chart color */
+    --chart-2: rgb(16, 185, 129); /* Green chart color */
+    --chart-3: rgb(59, 130, 246); /* Blue chart color */
+    --chart-4: rgb(245, 158, 11); /* Orange chart color */
+    --chart-5: rgb(139, 92, 246); /* Purple chart color */
+    --radius: 1.5rem; /* Border radius */
+  }
+
+  .dark {
+    --background: rgb(rgb(235, 11, 11)); /* Dark gray */
+    --foreground: rgb(var(--foreground-rgb)); /* White text */
+    --card: rgb(38, 38, 38); /* Dark gray card background */
+    --card-foreground: rgb(255, 255, 255); /* White text */
+    --popover: rgb(38, 38, 38); /* Dark gray popover background */
+    --popover-foreground: rgb(255, 255, 255); /* White text */
+    --primary: rgb(255, 255, 255); /* White primary color */
+    --primary-foreground: rgb(0, 0, 0); /* Black text */
+    --secondary: rgb(64, 64, 64); /* Dark gray secondary background */
+    --secondary-foreground: rgb(255, 255, 255); /* White text */
+    --muted: rgb(64, 64, 64); /* Dark gray muted background */
+    --muted-foreground: rgb(163, 163, 163); /* Light gray text */
+    --accent: rgb(64, 64, 64); /* Dark gray accent background */
+    --accent-foreground: rgb(255, 255, 255); /* White text */
+    --destructive: rgb(127, 29, 29); /* Dark red destructive color */
+    --destructive-foreground: rgb(255, 255, 255); /* White text */
+    --border: rgb(64, 64, 64); /* Dark gray border */
+    --input: rgb(64, 64, 64); /* Dark gray input background */
+    --ring: rgb(212, 212, 212); /* Light gray ring color */
+    --chart-1: rgb(99, 102, 241); /* Indigo chart color */
+    --chart-2: rgb(16, 185, 129); /* Green chart color */
+    --chart-3: rgb(245, 158, 11); /* Orange chart color */
+    --chart-4: rgb(139, 92, 246); /* Purple chart color */
+    --chart-5: rgb(239, 68, 68); /* Red chart color */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
