@@ -1,19 +1,5 @@
 import PostClient from "./PostClient"; // Import the client component
-
-// Fetch dynamic parameters for static site generation
-export async function generateStaticParams() {
-  try {
-    const response = await fetch("http://localhost:5000/api/posts");
-    if (!response.ok) {
-      throw new Error("Failed to fetch posts");
-    }
-    const posts = await response.json();
-    return posts.map((post: { id: number }) => ({ id: post.id.toString() }));
-  } catch (error) {
-    console.error("Error fetching static params:", error);
-    return [];
-  }
-}
+export const dynamic = "force-dynamic";
 
 // Server-side function to fetch post data
 export default async function PostPage({ params }: { params: { id: string } }) {
