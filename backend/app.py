@@ -5,10 +5,11 @@ import jwt
 import datetime
 import psycopg2
 from psycopg2.extras import RealDictCursor
+import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "e8f5c4d1a2e8b1d936c48a8df9a08e12"  # Replace with a secure secret key
-CORS(app, supports_credentials=True, origins=["http://localhost:3000"])
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
+CORS(app, supports_credentials=True, origins=[os.environ.get("CORS_ORIGIN")])
 
 # Flask-Bcrypt setup
 bcrypt = Bcrypt(app)
@@ -16,14 +17,8 @@ bcrypt = Bcrypt(app)
 # Database connection function
 def connect_db():
     try:
-        conn = psycopg2.connect(
-            dbname="blogs",
-            user="postgres",
-            password="12345",
-            host="localhost",
-            port="5432"
-        )
-        print("Database connection successful")
+        conn = psycopg2.connect(os.environ.get("DATABASE_URL"))
+        
         return conn
     except psycopg2.OperationalError as e:
         print(f"Database connection error: {e}")
