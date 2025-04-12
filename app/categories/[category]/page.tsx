@@ -8,22 +8,6 @@ interface Category {
   name: string;
   // Add other properties if needed
 }
-
-export async function generateStaticParams() {
-  // Fetch categories from your backend or define them manually
-  const categories = await fetch("http://localhost:5000/api/categories")
-    .then((res) => res.json())
-    .catch((err) => {
-      console.error("Failed to fetch categories:", err);
-      return [];
-    });
-
-  // Return an array of all possible category paths
-  return categories.map((category: Category) => ({
-    category: category.name, // Adjust based on your API response
-  }));
-}
-
 interface Post {
   id: number;
   title: string;
