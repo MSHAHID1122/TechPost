@@ -18,7 +18,7 @@ bcrypt = Bcrypt(app)
 def connect_db():
     try:
         conn = psycopg2.connect(os.environ.get("DATABASE_URL"))
-        
+        print("Database connection successful")
         return conn
     except psycopg2.OperationalError as e:
         print(f"Database connection error: {e}")
@@ -402,4 +402,4 @@ def check_like(post_id):
 
 # Run the app
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
